@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33 Small Scattered CSS Roses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div id="rose-template" class="rose-container rose-pink" style="top: 10%; left: 15%; transform: rotate(-10deg) scale(0.95);">
+        <div class="rose">
+            <div class="petal petal-layer-1"></div> <div class="petal petal-layer-1"></div> <div class="petal petal-layer-1"></div>
+            <div class="petal petal-layer-2"></div> <div class="petal petal-layer-2"></div> <div class="petal petal-layer-2"></div> <div class="petal petal-layer-2"></div> <div class="petal petal-layer-2"></div>
+            <div class="petal petal-layer-3"></div> <div class="petal petal-layer-3"></div> <div class="petal petal-layer-3"></div> <div class="petal petal-layer-3"></div> <div class="petal petal-layer-3"></div> <div class="petal petal-layer-3"></div> <div class="petal petal-layer-3"></div>
+            <div class="petal petal-center"></div>
+        </div>
+        <div class="stem"></div>
+        <div class="leaf leaf-1"></div>
+    </div>
+
+    <!-- Pop-up GIF that appears when a rose is clicked -->
+    <div id="gif-popup" class="gif-popup">
+        <img id="rose-gif" src="cat.gif" alt="Rose Gif">
+        <button id="close-btn" class="close-btn">Close</button>
+    </div>
+
+    <!-- Smaller Random GIF Pop-ups -->
+    <div id="small-gif-popup-1" class="small-gif-popup">
+        <img src="cat1.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(1)">Close</button>
+    </div>
+    <div id="small-gif-popup-2" class="small-gif-popup">
+        <img src="cat2.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(2)">Close</button>
+    </div>
+    <div id="small-gif-popup-3" class="small-gif-popup">
+        <img src="cat3.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(3)">Close</button>
+    </div>
+    <div id="small-gif-popup-4" class="small-gif-popup">
+        <img src="cat4.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(4)">Close</button>
+    </div>
+    <div id="small-gif-popup-5" class="small-gif-popup">
+        <img src="cat5.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(5)">Close</button>
+    </div>
+    <div id="small-gif-popup-6" class="small-gif-popup">
+        <img src="cat6.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(6)">Close</button>
+    </div>
+    <div id="small-gif-popup-10" class="small-gif-popup">
+        <img src="cat10.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(10)">Close</button>
+    </div>
+    <div id="small-gif-popup-20" class="small-gif-popup">
+        <img src="cat20.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(20)">Close</button>
+    </div>
+    <div id="small-gif-popup-30" class="small-gif-popup">
+        <img src="cat30.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(30)">Close</button>
+    </div>
+    <div id="small-gif-popup-40" class="small-gif-popup">
+        <img src="cat40.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(40)">Close</button>
+    </div>
+    <div id="small-gif-popup-50" class="small-gif-popup">
+        <img src="cat50.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(50)">Close</button>
+    </div>
+    <div id="small-gif-popup-11" class="small-gif-popup">
+        <img src="cat11.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(11)">Close</button>
+    </div>
+    <div id="small-gif-popup-21" class="small-gif-popup">
+        <img src="cat21.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(21)">Close</button>
+    </div>
+    <div id="small-gif-popup-31" class="small-gif-popup">
+        <img src="cat31.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(31)">Close</button>
+    </div>
+    <div id="small-gif-popup-41" class="small-gif-popup">
+        <img src="cat41.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(41)">Close</button>
+    </div>
+    <div id="small-gif-popup-51" class="small-gif-popup">
+        <img src="cat51.gif" alt="Random Gif">
+        <button class="small-close-btn" onclick="closeSmallPopup(51)">Close</button>
+    </div>
+    <script>
+        window.onload = function () {
+            const NUM_STARS = 200; // Number of stars
+            const starsContainer = document.querySelector('.stars');
+
+            // Create stars
+            for (let i = 0; i < NUM_STARS; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const size = Math.random() * 3 + 1;  // Size between 1px and 4px
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+
+                // Randomize position
+                const xPos = Math.random() * window.innerWidth;
+                const yPos = Math.random() * window.innerHeight;
+                star.style.left = `${xPos}px`;
+                star.style.top = `${yPos}px`;
+
+                starsContainer.appendChild(star);
+            }
+
+            const NUM_ROSES = 33;
+            const COLORS = ['rose-pink', 'rose-yellow', 'rose-white', 'rose-orange', 'rose-lavender'];
+
+            const roseTemplate = document.getElementById("rose-template");
+            const placedRoses = [];
+
+            // Color distribution
+            const colorQueue = [];
+            const baseCount = Math.floor(NUM_ROSES / COLORS.length);
+            const remainder = NUM_ROSES % COLORS.length;
+
+            COLORS.forEach((color, i) => {
+                for (let j = 0; j < baseCount + (i < remainder ? 1 : 0); j++) {
+                    colorQueue.push(color);
+                }
+            });
+
+            // Shuffle color order
+            colorQueue.sort(() => Math.random() - 0.5);
+
+            function isOverlapping(newPos, existing, minDistance = 110) {
+                return existing.some(pos => {
+                    const dx = newPos.x - pos.x;
+                    const dy = newPos.y - pos.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    return distance < minDistance;
+                });
+            }
+
+            function generateRandomPosition() {
+                const padding = 10;
+                const roseWidth = 120;  // Match your .rose-container width
+                const roseHeight = 185; // Match your .rose-container height
+                const maxW = window.innerWidth - roseWidth - padding;
+                const maxH = window.innerHeight - roseHeight - padding;
+                return {
+                    x: Math.random() * (maxW - padding) + padding,
+                    y: Math.random() * (maxH - padding) + padding
+                };
+            }
+
+            for (let i = 0; i < NUM_ROSES; i++) {
+                let pos;
+                let attempts = 0;
+                do {
+                    pos = generateRandomPosition();
+                    attempts++;
+                    if (attempts > 1000) break;
+                } while (isOverlapping(pos, placedRoses));
+
+                placedRoses.push(pos);
+
+                const clone = roseTemplate.cloneNode(true);
+                clone.style.display = "block";
+                clone.style.position = "absolute";
+                clone.style.left = `${pos.x}px`;
+                clone.style.top = `${pos.y}px`;
+
+                const angle = Math.random() * 120 - 60;
+                clone.style.transform = `rotate(${angle}deg) scale(${0.8 + Math.random() * 0.4})`;
+
+                clone.classList.remove('rose-pink');
+                clone.classList.add(colorQueue[i]);
+
+                // Make the first rose clickable
+                if (i === 0) {
+                    clone.addEventListener('click', function () {
+                        const gifPopup = document.getElementById('gif-popup');
+                        gifPopup.style.display = 'block'; // Show the pop-up when clicked
+
+                        // Show smaller pop-ups randomly
+                        const smallPopups = document.querySelectorAll('.small-gif-popup');
+                        smallPopups.forEach(popup => {
+                            const xPos = Math.random() * (window.innerWidth - 100);
+                            const yPos = Math.random() * (window.innerHeight - 100);
+                            popup.style.left = `${xPos}px`;
+                            popup.style.top = `${yPos}px`;
+                            popup.style.display = 'block';
+                        });
+                    });
+                }
+
+                document.body.appendChild(clone);
+            }
+
+            // Close the GIF pop-up when the close button is clicked
+            const closeButton = document.getElementById('close-btn');
+            closeButton.addEventListener('click', function () {
+                const gifPopup = document.getElementById('gif-popup');
+                gifPopup.style.display = 'none'; // Hide the pop-up
+            });
+        }
+
+        function closeSmallPopup(index) {
+            const popup = document.getElementById(`small-gif-popup-${index}`);
+            popup.style.display = 'none'; // Hide the small pop-up
+        }
+    </script>
+</body>
+</html>
